@@ -5,12 +5,12 @@ Aplicación PHP + MySQL para registrar envíos. En un único formulario solicita
 ## Puesta en marcha
 
 1. Sube el contenido de este proyecto a la carpeta web de tu hosting con PHP.
-2. Crea config.php a partir de config.example.php, o configura las variables de entorno JONGOX_DB_HOST, JONGOX_DB_NAME, JONGOX_DB_USER y JONGOX_DB_PASSWORD.
+2. Para una subida manual, crea config.php a partir de config.example.php, o configura las variables de entorno JONGOX_DB_HOST, JONGOX_DB_NAME, JONGOX_DB_USER y JONGOX_DB_PASSWORD.
 3. Abre index.php en el navegador. En la primera carga, la aplicación crea las tablas automáticamente si todavía no existen.
 
 El servidor debe tener PHP 7.4 o superior, la extensión pdo_mysql habilitada y permisos para crear tablas dentro de la base de datos configurada.
 
-config.php se excluye deliberadamente de Git y del ZIP de distribución. Si despliegas desde un repositorio o con el flujo FTP de GitHub, súbelo de manera segura después del despliegue, o crea config.php en el servidor a partir de config.example.php. Si falta, la aplicación mostrará una indicación de configuración en vez de un error fatal.
+config.php se excluye deliberadamente de Git y del ZIP de distribución. El workflow incluido para GitHub Actions lo genera de forma temporal antes de enviarlo por FTP; crea en GitHub los secretos DB_HOST, DB_NAME, DB_USER y DB_PASSWORD para usar esa modalidad. Si falta en una subida manual, la aplicación mostrará una indicación de configuración en vez de un error fatal.
 
 Para probar de forma local con PHP instalado:
 

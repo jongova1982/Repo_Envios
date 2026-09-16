@@ -4,30 +4,36 @@ on:
    push:
      branches:
        - main
+   workflow_dispatch:
 
 jobs:
   deploy:
     name: 🎉 Trabajo de Despliegue
-    runs-on: ubuntu-latest 
+    runs-on: ubuntu-latest
 
     steps:
       - name: 🚚 Obteniendo el código más reciente
         uses: actions/checkout@v4
+
+      - name: 🔐 Generando configuración privada
+        env:
+          DB_HOST: ${{ secrets.DB_HOST }}
+          DB_NAME: ${{ secrets.DB_NAME }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+        run: node .github/scripts/generate-config.mjs
 
       - name: 📂 Sincronizando archivos via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_HOSTING }} # Change if using another host
           username: ${{ secrets.FTP_USUARNAME }}
-          password: ${{ secrets.FTP_PASSW }} 
+          password: ${{ secrets.FTP_PASSW }}
           server-dir: ${{ secrets.FTP_WWW }} # Replace with your correct path
           protocol: ftps
+          port: 21
           timeout: 86400000
           log-level: standard
           exclude: |
-           .git/**
-           .github/**
-
-
-
-           
+            .git/**
+            .github/**
