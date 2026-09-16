@@ -1,5 +1,5 @@
 # Configuración local con las credenciales de la base de datos.
-config.php
+
 
 # Archivos temporales del sistema y paquetes generados.
 *.zip
