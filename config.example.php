@@ -12,8 +12,8 @@ function jongox_database_config(): array
     return [
         'host' => getenv('JONGOX_DB_HOST') ?: 'mysql-servidor.ejemplo',
         'name' => getenv('JONGOX_DB_NAME') ?: 'jongox_envios',
-        'user' => getenv('JONGOX_DB_USER') ?: 'tu_usuario',
-        'password' => getenv('JONGOX_DB_PASSWORD') ?: 'tu_clave',
+        'user' => getenv('JONGOX_DB_USER') ?: 'jongox',
+        'password' => getenv('JONGOX_DB_PASSWORD') ?: 'jongox#@1234',
     ];
 }
 
@@ -101,3 +101,6 @@ function jongox_string_length(string $value): int
     $characters = preg_split('//u', $value, -1, PREG_SPLIT_NO_EMPTY);
     return is_array($characters) ? count($characters) : strlen($value);
 }
+
+
+
