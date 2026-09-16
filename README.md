@@ -28,7 +28,7 @@ El sistema normaliza los nombres de columnas para que las relaciones sean consis
 | destinatario | id_destinatario, nombre, departamento, ciudad, direccion, telefono |
 | envio | id_envio, id_remitente, id_destinatario, descripcion, fecha_creacion |
 
-envio tiene claves foráneas hacia remitente y destinatario. Todas las tablas usan InnoDB y utf8mb4, por lo que los datos con tildes y ñ se almacenan correctamente. El archivo database.sql queda como referencia; no hace falta importarlo manualmente.
+envio tiene claves foráneas hacia remitente y destinatario. Todas las tablas usan InnoDB y utf8mb4, por lo que los datos con tildes y ñ se almacenan correctamente.
 
 ## Seguridad
 
